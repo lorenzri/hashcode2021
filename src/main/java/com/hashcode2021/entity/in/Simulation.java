@@ -1,5 +1,10 @@
 package com.hashcode2021.entity.in;
 
+import com.hashcode2021.graph.Intersection;
+
+import java.util.List;
+import java.util.Map;
+
 public class Simulation {
 
     private int duration;
@@ -7,13 +12,13 @@ public class Simulation {
     private int streets;
     private int cars;
     private int points;
+    private List<Street> streetList;
+    private List<Car> carList;
 
-    public Simulation(int duration, int intersections, int streets, int cars, int points) {
-        this.duration = duration;
-        this.intersections = intersections;
-        this.streets = streets;
-        this.cars = cars;
-        this.points = points;
+    private Map<Integer, Intersection> intersectionMap;
+
+    public Simulation() {
+
     }
 
     public int getDuration() {
@@ -54,5 +59,29 @@ public class Simulation {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public List<Street> getStreetList() {
+        return streetList;
+    }
+
+    public void setStreetList(List<Street> streetList) {
+        this.streetList = streetList;
+    }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
+
+    public void setCarList(List<Car> carList) {
+        this.carList = carList;
+    }
+
+    public Map<Integer, Intersection> getIntersectionMap() {
+        return intersectionMap;
+    }
+
+    public void setIntersectionMap(Map<Integer, Intersection> intersectionMap) {
+        this.intersectionMap = intersectionMap;
     }
 }

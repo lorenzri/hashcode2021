@@ -1,14 +1,16 @@
 package com.hashcode2021.entity.in;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Car {
     private int start;
-    private Set<String> streets;
+    private List<String> streets = new ArrayList<>();
 
-    public Car(int start, Set<String> streets) {
-        this.start = start;
-        this.streets = streets;
+    public Car() {
+
     }
 
     public int getStart() {
@@ -19,11 +21,11 @@ public class Car {
         this.start = start;
     }
 
-    public Set<String> getStreets() {
+    public List<String> getStreets() {
         return streets;
     }
 
-    public void setStreets(Set<String> streets) {
+    public void setStreets(List<String> streets) {
         this.streets = streets;
     }
 }

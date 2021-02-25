@@ -6,11 +6,8 @@ public class Street {
     private int end;
     private int length;
 
-    public Street(String name, int start, int end, int length) {
-        this.name = name;
-        this.start = start;
-        this.end = end;
-        this.length = length;
+    public Street() {
+
     }
 
     public String getName() {
