@@ -1,6 +1,8 @@
 package com.hashcode2021;
 
 import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,8 +13,8 @@ import java.util.Scanner;
 public class ParentApplication {
 
 	public static void main(String[] args) {
-		String directory = "/home/rilo/Development/projects/hashcode2021/docs/competition/";
-		String filename = null;
+
+		String filename = args[0];
 		filename = "a.txt";
 //		filename = "b.txt";
 //		filename = "c.txt";
@@ -20,7 +22,13 @@ public class ParentApplication {
 //		filename = "e.txt";
 //		filename = "f.txt";
 		List<String> linesFromFile = null;
-		File file = new File(directory.concat(filename));
+		URL resource = ParentApplication.class.getClassLoader().getResource(filename);
+		File file = null;
+		try {
+			file = new File(resource.toURI());
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
 		Scanner scanner = null;
 
 		try {
@@ -33,8 +41,6 @@ public class ParentApplication {
 				scanner.nextLine();
 			}
 
-		for (String line : linesFromFile) {
-			System.out.println(line);
-		}
+
 	}
 }

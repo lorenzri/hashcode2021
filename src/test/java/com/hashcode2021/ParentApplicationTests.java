@@ -10,4 +10,11 @@ public class ParentApplicationTests {
 		assert true;
 	}
 
+	@Test
+	public void readFileA() {
+		ParentApplication.main(new String[]{"a.txt"});
+		// output a_out.txt
+
+	}
+
 }
