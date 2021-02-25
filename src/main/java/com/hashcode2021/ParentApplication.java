@@ -66,9 +66,13 @@ public class ParentApplication {
 			for (Street street : entry.getValue().getIncomingStreets()) {
 				GreenLight greenlight = new GreenLight();
 				// TODO: 25.02.21 CHANGE
+
 				if(entry.getValue().getIncomingStreets().size() == 1){
 					greenlight.setDuration(simulation.getDuration());
 				} else {
+					if(simulation.getStreetUsage().get(street.getName()) != null && simulation.getStreetUsage().get(street.getName()) > 10) {
+						greenlight.setDuration(Math.round(simulation.getDuration()/3));
+					}
 					greenlight.setDuration(1);
 				}
 				greenlight.setStreet(street.getName());
@@ -99,6 +103,7 @@ public class ParentApplication {
 		// read streets
 		List<Street> streets = new ArrayList<>();
 		Map<Integer, Intersection> intersectionMap = new HashMap<>();
+		Map<String, Integer> streetUsage = new HashMap<>();
 		for(int i = 0; i < simulation.getStreets(); i++){
 			String lineStreet = scanner.nextLine();
 			Street street = new Street();
@@ -129,6 +134,11 @@ public class ParentApplication {
 			car.setStart(Integer.parseInt(lineCarArray[0]));
 			for(int j = 1; j < lineCarArray.length; j++){
 				car.getStreets().add(lineCarArray[j]);
+				if (streetUsage.containsKey(lineCarArray[j])){
+					streetUsage.put(lineCarArray[j], streetUsage.get(lineCarArray[j]) + 1);
+				} else {
+					streetUsage.put(lineCarArray[j], 1);
+				}
 			}
 			cars.add(car);
 		}
@@ -137,6 +147,7 @@ public class ParentApplication {
 		simulation.setStreetList(streets);
 		simulation.setCarList(cars);
 		simulation.setIntersectionMap(intersectionMap);
+		simulation.setStreetUsage(streetUsage);
 
 		return simulation;
 	}

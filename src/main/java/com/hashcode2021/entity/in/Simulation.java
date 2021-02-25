@@ -14,6 +14,7 @@ public class Simulation {
     private int points;
     private List<Street> streetList;
     private List<Car> carList;
+    private Map<String, Integer> streetUsage;
 
     private Map<Integer, Intersection> intersectionMap;
 
@@ -83,5 +84,13 @@ public class Simulation {
 
     public void setIntersectionMap(Map<Integer, Intersection> intersectionMap) {
         this.intersectionMap = intersectionMap;
+    }
+
+    public Map<String, Integer> getStreetUsage() {
+        return streetUsage;
+    }
+
+    public void setStreetUsage(Map<String, Integer> streetUsage) {
+        this.streetUsage = streetUsage;
     }
 }
