@@ -8,37 +8,33 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class ParentApplication {
 
 	public static void main(String[] args) {
-		String directory = "/home/rilo/Development/projects/hashcode2021/docs/practice/";
-		String filename = "a_example";
+		String directory = "/home/rilo/Development/projects/hashcode2021/docs/competition/";
+		String filename = null;
+		filename = "a.txt";
+//		filename = "b.txt";
+//		filename = "c.txt";
+//		filename = "d.txt";
+//		filename = "e.txt";
+//		filename = "f.txt";
 		List<String> linesFromFile = null;
+		File file = new File(directory.concat(filename));
+		Scanner scanner = null;
 
 		try {
-			linesFromFile = readFile(directory, filename);
-		} catch (IOException e) {
+			scanner = new Scanner(file);
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+
+		while(scanner.hasNext()){
+				scanner.nextLine();
+			}
 
 		for (String line : linesFromFile) {
 			System.out.println(line);
 		}
-	}
-
-	private static List<String> readFile(String directory, String filename) throws IOException {
-
-		List<String> lines = new ArrayList<>();
-		String line = null;
-		File file = new File(directory.concat(filename));
-		Scanner scanner = new Scanner(file);
-
-		while(scanner.hasNext()){
-			line = scanner.nextLine();
-			lines.add(line);
-		}
-
-		return lines;
 	}
 }
