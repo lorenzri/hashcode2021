@@ -7,7 +7,6 @@ import com.hashcode2021.entity.out.GreenLight;
 import com.hashcode2021.entity.out.Schedule;
 import com.hashcode2021.entity.out.Submission;
 import com.hashcode2021.graph.Intersection;
-import com.sun.tools.javac.util.StringUtils;
 
 import java.io.*;
 import java.net.URISyntaxException;

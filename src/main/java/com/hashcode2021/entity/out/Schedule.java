@@ -30,4 +30,15 @@ public class Schedule {
     public void setGreenLights(List<GreenLight> greenLights) {
         this.greenLights = greenLights;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(intersection);
+        builder.append("\n").append(numberOfIncomingStreets);
+        for(GreenLight greenLight : greenLights) {
+            builder.append("\n").append(greenLight.toString());
+        }
+        return builder.toString();
+    }
 }

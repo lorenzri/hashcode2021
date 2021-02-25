@@ -24,9 +24,11 @@ public class Submission {
 
     @Override
     public String toString() {
-        return "Submission{" +
-                "numberOfIntersections=" + numberOfIntersections +
-                ", schedules=" + schedules +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        builder.append(numberOfIntersections);
+        for(Schedule schedule : schedules) {
+            builder.append("\n").append(schedule.toString());
+        }
+        return builder.toString();
     }
 }

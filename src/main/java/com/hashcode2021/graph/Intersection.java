@@ -2,12 +2,13 @@ package com.hashcode2021.graph;
 
 import com.hashcode2021.entity.in.Street;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Intersection {
     private int id;
-    private List<Street> incomingStreets;
-    private List<Street> outgoingStreets;
+    private List<Street> incomingStreets = new ArrayList<>();
+    private List<Street> outgoingStreets = new ArrayList<>();
 
     public int getId() {
         return id;

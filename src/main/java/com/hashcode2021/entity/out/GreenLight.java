@@ -19,4 +19,11 @@ public class GreenLight {
     public void setStreet(String street) {
         this.street = street;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(street).append(" ").append(duration);
+        return builder.toString();
+    }
 }
