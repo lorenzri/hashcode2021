@@ -40,7 +40,7 @@ public class ParentApplication {
 
 		Submission submission = buildSubmission(simulation);
 
-		try (OutputStream outputStream = new FileOutputStream(filename + "_submission")) {
+		try (OutputStream outputStream = new FileOutputStream(filename.split("\\.")[0] + "_submission" + ".txt")) {
 			writeSubmission(outputStream, submission);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -66,10 +66,16 @@ public class ParentApplication {
 			for (Street street : entry.getValue().getIncomingStreets()) {
 				GreenLight greenlight = new GreenLight();
 				// TODO: 25.02.21 CHANGE
-				greenlight.setDuration(1);
+				if(entry.getValue().getIncomingStreets().size() == 1){
+					greenlight.setDuration(simulation.getDuration());
+				} else {
+					greenlight.setDuration(1);
+				}
 				greenlight.setStreet(street.getName());
 				greenlights.add(greenlight);
 			}
+
+
 			schedule.setGreenLights(greenlights);
 			schedules.add(schedule);
 		}
