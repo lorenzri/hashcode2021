@@ -1,4 +1,4 @@
-package com.hashcode2021.entity;
+package com.hashcode2021.entity.in;
 
 public class Simulation {
 

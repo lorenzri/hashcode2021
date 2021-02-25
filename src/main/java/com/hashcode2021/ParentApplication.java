@@ -15,12 +15,7 @@ public class ParentApplication {
 	public static void main(String[] args) {
 
 		String filename = args[0];
-		filename = "a.txt";
-//		filename = "b.txt";
-//		filename = "c.txt";
-//		filename = "d.txt";
-//		filename = "e.txt";
-//		filename = "f.txt";
+
 		List<String> linesFromFile = null;
 		URL resource = ParentApplication.class.getClassLoader().getResource(filename);
 		File file = null;
@@ -42,5 +37,13 @@ public class ParentApplication {
 			}
 
 
+
+		try (OutputStream outputStream = new FileOutputStream(filename + "submission")) {
+			// write to outputStream
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
